@@ -247,6 +247,9 @@ set_false_path -to [get_ports {pa_*}]
 
 ## Multicycle in MAC
 
+set_multicycle_path -from [get_keepers {hermeslite_core:hermeslite_core_i|network:network_inst|ip_send:ip_send_inst|ip_id[*]}] -to [get_keepers {hermeslite_core:hermeslite_core_i|network:network_inst|ip_send:ip_send_inst|shift_reg[*]}] -setup -start 2
+set_multicycle_path -from [get_keepers {hermeslite_core:hermeslite_core_i|network:network_inst|ip_send:ip_send_inst|ip_id[*]}] -to [get_keepers {hermeslite_core:hermeslite_core_i|network:network_inst|ip_send:ip_send_inst|shift_reg[*]}] -hold -start 1
+
 set_multicycle_path -from [get_keepers {hermeslite_core:hermeslite_core_i|network:network_inst|dhcp:dhcp_inst|length[*]}] -to [get_keepers {hermeslite_core:hermeslite_core_i|network:network_inst|ip_send:ip_send_inst|shift_reg[*]}] -setup -start 3
 set_multicycle_path -from [get_keepers {hermeslite_core:hermeslite_core_i|network:network_inst|dhcp:dhcp_inst|length[*]}] -to [get_keepers {hermeslite_core:hermeslite_core_i|network:network_inst|ip_send:ip_send_inst|shift_reg[*]}] -hold -start 2
 
