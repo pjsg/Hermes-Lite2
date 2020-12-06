@@ -50,7 +50,7 @@ reg  [15:0]     ip_id;   // Have an incrementing id to help track lost packets
 
 //ip checksum: 16 bit one's complement of the one's complement sum
 wire [19:0] sum = 20'h10500 + {4'b0, ip_packet_length} + {12'b0, protocol_code} +
-  {4'b0, local_ip[31:16]} + {4'b0, local_ip[15:0]} + // {4'b0, ip_id[15:0]} +
+  {4'b0, local_ip[31:16]} + {4'b0, local_ip[15:0]} + {4'b0, ip_id[15:0]} +
     {4'b0, destination_ip[31:16]} + {4'b0, destination_ip[15:0]};
 
 wire [16:0] checksum_and_carry = {1'b0, sum[15:0]} + {13'b0, sum[19:16]}                      ;
